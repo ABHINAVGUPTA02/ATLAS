@@ -23,12 +23,12 @@ class ExpenseCalculatorTool:
             return self.calculator.multiply(price_per_night, total_days)
 
         @tool
-        def calculate_total_expenses(*expenses: float) -> float:
+        def calculate_total_expenses(expenses: List[float]) -> float:
             """
             Calculate the sum of all travel expenses.
             
             Args:
-                *expenses (float): Variable number of expense amounts to sum up (e.g., hotel, food, transport, activities).
+                expenses (List[float]): A list of expense amounts to sum up (e.g., [hotel, food, transport, activities]).
             
             Returns:
                 float: The total sum of all provided expenses.
