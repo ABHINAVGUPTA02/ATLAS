@@ -35,6 +35,17 @@ def add(a: int, b: int) -> int:
 
 @tool
 def currency_converter(from_curr: str, to_curr: str, value: float)  -> float:
+    """
+    Convert currency from one type to another using exchange rates.
+
+    Args:
+        from_curr (str): The currency code to convert from (e.g., 'USD').
+        to_curr (str): The currency code to convert to (e.g., 'EUR').
+        value (float): The amount of money to convert.
+
+    Returns:
+        float: The converted amount in the target currency.
+    """
     os.environ["ALPHAVANTAGE_API_KEY"] = os.getenv('ALPHAVANTAGE_API_KEY')
     alpha_vantage = AlphaVantageAPIWrapper()
     response = alpha_vantage._get_exchange_rate(from_currency=from_curr, to_currency=to_curr)

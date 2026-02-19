@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from utils.weather_info_tool import WeatherForecastTool
+from utils.weather_info import WeatherForecastTool
 from typing import List
 from langchain.tools import tool
 
@@ -16,7 +16,15 @@ class WeatherInfoTool:
         """Set up weather information tools."""
         @tool
         def get_current_weather(city:str):
-            """Get current weather information for a specified city."""
+            """
+            Get current weather information for a specified city.
+
+            Args:
+                city (str): The name of the city to get the weather information for.
+
+            Returns:
+                str: A message containing the current weather information for the specified city.
+            """
             weather_data = self.weather_service.get_current_weather(city)
             if weather_data:
                 temp = weather_data.get("main", {}).get("temp", 'N/A')
@@ -26,7 +34,15 @@ class WeatherInfoTool:
 
         @tool
         def get_weather_forecast(city: str):
-            """Get weather forecast information for a specified city."""
+            """
+            Get weather forecast information for a specified city.
+
+            Args:
+                city (str): The name of the city to get the weather forecast for.
+
+            Returns:
+                str: A message containing the weather forecast information for the specified city.
+            """
             forecast_data = self.weather_service.get_weather_forecast(city)
             if forecast_data and "list" in forecast_data:
                 forecast_summary = []

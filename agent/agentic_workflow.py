@@ -1,9 +1,9 @@
 from langgraph.graph import StateGraph, MessagesState, START, END
-from langgraph.graph import ToolNode, tools_condition
+from langgraph.prebuilt import ToolNode, tools_condition
 
 from prompt_library.prompt import SYSTEM_PROMPT
 
-from utils.model_loader import MODEL_LOADER
+from utils.model_loader import ModelLoader
 
 from tools.weather_info_tool import WeatherInfoTool
 from tools.place_search_tool import PlaceSearchTool
@@ -12,7 +12,7 @@ from tools.currency_conversion_tool import CurrencyConverterTool
 
 class GraphBuilder():
     def __init__(self, model_provider: str = "groq"):
-       self.model_loader = MODEL_LOADER(model_provider=model_provider)
+       self.model_loader = ModelLoader(model_provider=model_provider)
        self.llm = self.model_loader.load_llm()       
        self.tools = []
        self.weather_tools = WeatherInfoTool()

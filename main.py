@@ -3,7 +3,9 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from agent.agentic_workflow import GraphBuilder
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = FastAPI()
 
@@ -25,8 +27,8 @@ async def query_travel_agent(query:QueryRequest):
 
         print(f"Graph saved successfully as my_graph.png in {os.getcwd()}")
 
-        messages={"messages": [query.question]}
-        output = react_app.invoke(messages)
+        messages={"messages": [query.query]}
+        output = react_app.invoke(messages) 
 
         if isinstance(output, dict) and "messages" in output:
             final_output = output["messages"][-1].content
