@@ -1,0 +1,19 @@
+langchain
+langchain-community
+langchain-experimental
+fastapi
+python-dotenv
+streamlit
+uvicorn
+pydantic
+httpx
+requests
+langchain_google_community[places]
+langchain_tavily
+langchain_groq
+langchain_openai
+pyyaml
+langgraph
+
+
+-e .
