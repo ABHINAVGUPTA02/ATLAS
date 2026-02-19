@@ -9,18 +9,16 @@ def save_to_document(response_text: str, directory: str = "./output"):
 
     markdown_content = f"""🗺️ AI Travel Plan
 
-    # **Generated:** {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
-    # **CreatedBy:** Atlas 
+**Generated:** {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")} | **CreatedBy:** Atlas 
 
-    ---
+---
 
-    {response_text}
+{response_text}
 
-    ---
+---
 
-    *This travel plan was created using AI technology. Please verify all information before making travel arrangements.*
-
-    """
+*This travel plan was created using AI technology. Please verify all information before making travel arrangements.*
+"""
 
     try:
         # Write to markdown file with UTF-8 encoding
